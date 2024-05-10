@@ -40,5 +40,16 @@ echo Buliding Docker Image
 echo Please wait...
 
 :: Build Docker Image
-cd mota-docker/docker-backend/
+cd mota-docker/docker-backend/setup
+
+@docker build -t mota-docker-dev .
+
+@docker run -it --rm ^
+-v mota-backend_gcloud-config:/root/.config ^
+-v mota-backend_maven-repo:/root/.m2 ^
+-v mota-backend_mota-source:/home ^
+mota-docker-dev
+
+cd ..
+
 docker compose up
