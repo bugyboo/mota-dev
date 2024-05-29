@@ -15,9 +15,9 @@ echo "pulling the latest code from the repository..."
 echo ""
 
 # change the directory to the project directory /home
-cd /home
+mkdir -p /home/mota
 
-mkdir mota
+cd /home/mota
 
 # clone the repository
 gcloud source repos clone mota-sb
