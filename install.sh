@@ -17,12 +17,15 @@ echo ""
 # change the directory to the project directory /home
 cd /home
 
+mkdir mota
+
 # clone the repository
 gcloud source repos clone mota-sb
 gcloud source repos clone mota-lib-dao
 gcloud source repos clone mota-executor
 gcloud source repos clone ng-mota
 gcloud source repos clone mota-docker
+gcloud source repos clone mota-dn
 
 echo ""
 echo "Finished installing the source code..."
