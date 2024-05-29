@@ -30,8 +30,8 @@ REM Running Docker installation script for Mota project
 -v "%cd%":/usr/config ^
 -v mota-backend_gcloud-config:/root/.config ^
 -v mota-backend_maven-repo:/root/.m2 ^
--v mota-backend_mota-source:/home ^
--v "%cd%/mota-docker":/home/mota-docker ^
+-v mota-backend_mota-source:/home/mota ^
+-v "%cd%/mota-docker":/home/mota/mota-docker ^
 -w /usr/config ^
 gcr.io/google.com/cloudsdktool/google-cloud-cli:alpine ^
 /bin/bash install.sh
@@ -47,7 +47,7 @@ cd mota-docker/docker-backend/setup
 @docker run -it --rm ^
 -v mota-backend_gcloud-config:/root/.config ^
 -v mota-backend_maven-repo:/root/.m2 ^
--v mota-backend_mota-source:/home ^
+-v mota-backend_mota-source:/home/mota ^
 mota-docker-dev
 
 cd ..
