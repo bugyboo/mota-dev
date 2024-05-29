@@ -27,8 +27,8 @@ docker run -it --rm \
 -v "$(pwd)":/usr/config \
 -v mota-backend_gcloud-config:/root/.config \
 -v mota-backend_maven-repo:/root/.m2 \
--v mota-backend_mota-source:/home \
--v "$(pwd)/mota-docker":/home/mota-docker \
+-v mota-backend_mota-source:/home/mota \
+-v "$(pwd)/mota-docker":/home/mota/mota-docker \
 -w /usr/config \
 gcr.io/google.com/cloudsdktool/google-cloud-cli:alpine \
 /bin/bash install.sh
