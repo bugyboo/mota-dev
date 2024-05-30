@@ -24,32 +24,26 @@ REM Running Docker installation script for Mota project
     exit /b
 )
 
-:: Run Docker Install Container
-
-@docker run -it --rm ^
--v "%cd%":/usr/config ^
--v mota-backend_gcloud-config:/root/.config ^
--v mota-backend_maven-repo:/root/.m2 ^
--v mota-backend_mota-source:/home/mota ^
--v "%cd%/mota-docker":/home/mota/mota-docker ^
--w /usr/config ^
-gcr.io/google.com/cloudsdktool/google-cloud-cli:alpine ^
-/bin/bash install.sh
-
-echo Buliding Docker Image
+echo Buliding Docker Images
 echo Please wait...
 
 :: Build Docker Image
-cd mota-docker/docker-backend/setup
+@docker build -t mota-builder .
 
-@docker build -t mota-docker-dev .
-
+:: Run Docker Install Container
 @docker run -it --rm ^
 -v mota-backend_gcloud-config:/root/.config ^
 -v mota-backend_maven-repo:/root/.m2 ^
 -v mota-backend_mota-source:/home/mota ^
-mota-docker-dev
+-v "%cd%":/home/builder ^
+mota-builder ^
+/bin/bash install.sh
 
-cd ..
+:: Run Docker Containers
+
+echo Running Docker Compose
+echo Please wait...
+
+cd /mota-docker/docker-backend
 
 docker compose up
