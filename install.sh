@@ -37,7 +37,7 @@ echo ""
 
 cd /home/mota/mota-lib-dao
 
-java install -DskipTests
+mvn install -DskipTests
 
 echo ""
 echo "Finished installing Java libs"
