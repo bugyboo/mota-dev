@@ -44,6 +44,6 @@ bash -c "cd /home/builder && ./install.sh"
 echo Running Docker Compose
 echo Please wait...
 
-cd /mota-docker/docker-backend
+cd mota-docker/docker-backend
 
-docker compose up
+@docker compose up
