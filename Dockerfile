@@ -4,4 +4,3 @@ FROM gcr.io/google.com/cloudsdktool/google-cloud-cli:alpine
 RUN apk --update-cache add openjdk17-jdk maven \
     && rm -rf /var/cache/apk/*
 WORKDIR /home
-CMD /bin/sh install.sh
