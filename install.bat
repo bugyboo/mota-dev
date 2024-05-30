@@ -37,7 +37,7 @@ echo Please wait...
 -v mota-backend_mota-source:/home/mota ^
 -v "%cd%":/home/builder ^
 mota-builder ^
-/bin/bash install.sh
+bash -c "cd /home/builder && ./install.sh"
 
 :: Run Docker Containers
 
