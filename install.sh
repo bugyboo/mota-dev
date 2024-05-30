@@ -30,3 +30,23 @@ gcloud source repos clone mota-dn
 echo ""
 echo "Finished installing the source code..."
 echo ""
+
+echo ""
+echo "Compiling Mota libs"
+echo ""
+
+cd /home/mota/mota-lib-dao
+
+java install -DskipTests
+
+echo ""
+echo "Finished installing Java libs"
+echo ""
+
+echo ""
+echo "Copying mota-docker builder"
+echo ""
+
+mkdir -p /home/builder
+
+cp -r /home/mota/mota-docker /home/builder/
