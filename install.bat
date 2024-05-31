@@ -29,6 +29,12 @@ REM Running Docker installation script for Mota project
 @docker volume create mota-backend_mota-source
 @docker volume create mota-backend_mota-mssql
 @docker volume create mota-backend_mota-upload
+@docker volume create vscode-java-extension
+@docker volume create vscode-java-extension-cache
+@docker volume create vscode-node-extension
+@docker volume create vscode-node-extension-cache
+@docker volume create vscode-dotnet-extension
+@docker volume create vscode-dotnet-extension-cache
 
 @echo Buliding Docker Images
 @echo Please wait...
