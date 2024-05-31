@@ -34,7 +34,7 @@ REM Running Docker installation script for Mota project
 @echo Please wait...
 
 :: Build Docker Image
-@docker build -t mota-builder .
+@docker build -t mota-docker-builder .
 
 :: Run Docker Install Container
 @docker run -it --rm ^
@@ -42,7 +42,7 @@ REM Running Docker installation script for Mota project
 -v mota-backend_maven-repo:/root/.m2 ^
 -v mota-backend_mota-source:/home/mota ^
 -v "%cd%":/home/builder ^
-mota-builder ^
+mota-docker-builder ^
 bash -c "cd /home/builder && ./install.sh"
 
 :: Run Docker Containers
@@ -53,3 +53,5 @@ bash -c "cd /home/builder && ./install.sh"
 cd mota-docker/docker-backend
 
 @docker compose up
+
+@docker image rm mota-docker-builder
