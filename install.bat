@@ -24,8 +24,14 @@ REM Running Docker installation script for Mota project
     exit /b
 )
 
-echo Buliding Docker Images
-echo Please wait...
+@docker volume create mota-backend_gcloud-config
+@docker volume create mota-backend_maven-repo
+@docker volume create mota-backend_mota-source
+@docker volume create mota-backend_mota-mssql
+@docker volume create mota-backend_mota-upload
+
+@echo Buliding Docker Images
+@echo Please wait...
 
 :: Build Docker Image
 @docker build -t mota-builder .
@@ -41,8 +47,8 @@ bash -c "cd /home/builder && ./install.sh"
 
 :: Run Docker Containers
 
-echo Running Docker Compose
-echo Please wait...
+@echo Running Docker Compose
+@echo Please wait...
 
 cd mota-docker/docker-backend
 
