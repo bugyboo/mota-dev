@@ -12,7 +12,7 @@ REM Running Docker installation script for Mota project
     exit /b
 )
 
-:: Check if Docker is running
+:: Check if Docker is running 
 
 @docker ps -a
 

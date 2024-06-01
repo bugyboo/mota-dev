@@ -22,20 +22,42 @@ else
     exit 1
 fi
 
+docker volume create mota-backend_gcloud-config
+docker volume create mota-backend_maven-repo
+docker volume create mota-backend_mota-source
+docker volume create mota-backend_mota-mssql
+docker volume create mota-backend_mota-upload
+docker volume create vscode-java-extension
+docker volume create vscode-java-extension-cache
+docker volume create vscode-node-extension
+docker volume create vscode-node-extension-cache
+docker volume create vscode-dotnet-extension
+docker volume create vscode-dotnet-extension-cache
+
+echo "Buliding Docker Images"
+echo "Please wait..."
+
+# Build Docker Builder Image
+docker build -t mota-docker-builder .
+
 # Run Docker Install Container
 docker run -it --rm \
 -v "$(pwd)":/usr/config \
 -v mota-backend_gcloud-config:/root/.config \
 -v mota-backend_maven-repo:/root/.m2 \
 -v mota-backend_mota-source:/home/mota \
--v "$(pwd)/mota-docker":/home/mota/mota-docker \
+-v "$(pwd)":/home/builder \
 -w /usr/config \
-gcr.io/google.com/cloudsdktool/google-cloud-cli:alpine \
-/bin/bash install.sh
+mota-docker-builder \
+bash -c "cd /home/builder && ./install.sh"
+
+# Run Docker Install Container
 
 echo "Building Docker Image"
 echo "Please wait..."
 
-# Build Docker Image
-cd mota-docker/docker-backend/
+cd mota-docker/docker-backend
+
 docker compose up
+
+docker image rm mota-docker-builder
