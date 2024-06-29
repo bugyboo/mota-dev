@@ -42,12 +42,10 @@ docker build -t mota-docker-builder .
 
 # Run Docker Install Container
 docker run -it --rm \
--v "$(pwd)":/usr/config \
 -v mota-backend_gcloud-config:/root/.config \
 -v mota-backend_maven-repo:/root/.m2 \
 -v mota-backend_mota-source:/home/mota \
 -v "$(pwd)":/home/builder \
--w /usr/config \
 mota-docker-builder \
 bash -c "cd /home/builder && ./install.sh"
 
