@@ -33,6 +33,8 @@ docker volume create vscode-node-extension
 docker volume create vscode-node-extension-cache
 docker volume create vscode-dotnet-extension
 docker volume create vscode-dotnet-extension-cache
+docker volume create vscode-rust-extension
+docker volume create vscode-rust-extension-cache
 
 echo "Buliding Docker Images"
 echo "Please wait..."
