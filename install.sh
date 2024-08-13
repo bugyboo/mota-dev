@@ -26,6 +26,7 @@ gcloud source repos clone mota-executor
 gcloud source repos clone ng-mota
 gcloud source repos clone mota-docker
 gcloud source repos clone mota-dn
+gcloud source repos clone mota-ws
 
 echo ""
 echo "Finished installing the source code..."
