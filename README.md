@@ -11,12 +11,12 @@ curl -L -O https://github.com/bugyboo/mota-dev/archive/refs/heads/main.zip
 ```
 tar -xf main.zip
 ```
-- Run the script
+## Run the script on Windows
 ```
 cd .\mota-dev-main\
-// For Windows
 ./install.bat
-// OR
-install
-// For shell
+```
+## Run the script on Linux / MacOS
+```
+cd ./mota-dev-main
 ./install_osx.sh
